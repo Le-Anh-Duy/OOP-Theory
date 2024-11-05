@@ -1,8 +1,8 @@
 #include "Monomial.h"
 class Polynomial {
 private:
-    Monomial* m_monomials;
-    int m_degree;
+    Monomial* m_monomials = nullptr;
+    int m_degree = 0;
 public:
 
     Polynomial();

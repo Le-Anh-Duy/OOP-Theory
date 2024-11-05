@@ -52,8 +52,14 @@ Polynomial::Polynomial(const Polynomial& p){
         throw std::invalid_argument("Degree must be greater than or equal to 0.");
     }
 
-    m_degree = p.m_degree;
-    m_monomials = new Monomial[m_degree + 1];
+    try {
+        m_degree = p.m_degree;
+        m_monomials = new Monomial[m_degree + 1];
+    }
+    catch (std::bad_alloc& e) {
+        throw std::invalid_argument("Memory allocation failed.");
+    }
+
     for (int i = 0; i <= m_degree; i++) {
         m_monomials[i] = p.m_monomials[i];
     }
